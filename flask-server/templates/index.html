@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Joystick Monitor</title>
+    <style>
+        body { display: flex;justify-content: center; width: 100vw;font-family: sans-serif; padding-top: 2em; background: #f0f0f0; }
+        .card { background: white; padding: 1em; border-radius: 10px; max-width: 300px; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>Posição do Joystick</h2>
+        <p><strong>X:</strong> <span id="x">0</span></p>
+        <p><strong>Y:</strong> <span id="y">0</span></p>
+        <p><strong>Direção:</strong> <span id="dir">Centro</span></p>
+    </div>
+    
+    <div class="card">
+        <h2>Botões e Temperatura</h2>
+        <p><strong>Botão A:</strong> <span id="btn_a">0</span></p>
+        <p><strong>Botão B:</strong> <span id="btn_b">0</span></p>
+        <p><strong>Temperatura Interna:</strong> <span id="temp">0 °C</span></p>
+        <p><strong>Atualizado em:</strong> <span id="ts">N/A</span></p>
+    </div>
+
+    <script>
+        function fetchData() {
+            fetch("/data")
+                .then(r => r.json())
+                .then(d => {
+                    document.getElementById("btn_a").textContent = d.btn_a;
+                    document.getElementById("btn_b").textContent = d.btn_b;
+                    document.getElementById("temp").textContent = d.temp + " °C";
+                    document.getElementById("x").textContent = d.x;
+                    document.getElementById("y").textContent = d.y;
+                    document.getElementById("dir").textContent = d.direction;
+                    document.getElementById("ts").textContent = d.timestamp;
+                });
+        }
+        setInterval(fetchData, 1000);
+        fetchData();
+    </script>
+</body>
+</html>
