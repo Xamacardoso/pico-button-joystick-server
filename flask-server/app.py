@@ -39,13 +39,13 @@ def compute_direction(x, y):
 def index():
     return render_template("index.html")
 
-@app.route("/update")
+@app.route("/update", methods=["POST"])
 def joystick():
     data["x"] = int(request.args.get("joy_x", 0))
     data["y"] = int(request.args.get("joy_y", 0))
     data["btn_a"] = int(request.args.get("btn_a", 0))
     data["btn_b"] = int(request.args.get("btn_b", 0))
-    data["temp"] = int(request.args.get("temp", 0))
+    data["temp"] = float(request.args.get("temp", 0))
     
     x = data["x"]
     y = data["y"]

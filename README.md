@@ -66,7 +66,7 @@ Assim que o programa do Pico iniciar, ele começará a enviar requisições `POS
 
 ### ⚠️ Nota Importante
 
-Certifique-se de substituir `WIFI_SSID` e `WIFI_PASSWORD` no código do Pico pelo SSID e senha reais da sua rede Wi-Fi antes de compilar e carregar o programa. Além disso, atualize o valor de `SERVER_IP` no código para o endereço IP do computador onde o servidor Flask está rodando. Isso é essencial para garantir que o dispositivo consiga se conectar corretamente ao servidor.
+Certifique-se de substituir `WIFI_SSID` e `WIFI_PASSWORD` no código do Pico pelo SSID e senha reais da sua rede Wi-Fi antes de compilar e carregar o programa. Além disso, conecte o Raspberry Pi Pico W na **MESMA REDE** do computador, e atualize o valor de `SERVER_IP` no código para o endereço IP do computador onde o servidor Flask está rodando. Isso é essencial para garantir que o dispositivo consiga se conectar corretamente ao servidor.
 
 ### 4. Visualizar os dados
 
